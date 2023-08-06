@@ -37,7 +37,9 @@ layout: default
     
     <ul class="post-list">
       {% for post in paginator.posts %}
-        {% include post-list-item.html %}
+        {% if post.categories contains page.category or page.category == null %}
+          {% include post-list-item.html %}
+        {% endif %}
       {% endfor %}
     </ul>
 
